@@ -1,9 +1,13 @@
 import styles from './index.css';
-import { Table, Button } from 'antd';
+import { Table, Button ,Divider} from 'antd';
+import React, { Component } from 'react'
 
-export default function() {
+class TableDemo extends React.Component {
 
-    const dataSource = [
+  constructor(props) {
+    super(props);
+    this.state = { 
+       dataSource : [
         {
           key: '1',
           name: '胡彦斌',
@@ -16,9 +20,9 @@ export default function() {
           age: 42,
           address: '西湖区湖底公园1号',
         },
-      ];
+      ],
       
-      const columns = [
+       columns : [
         {
           title: '姓名',
           dataIndex: 'name',
@@ -34,12 +38,25 @@ export default function() {
           dataIndex: 'address',
           key: 'address',
         },
-      ];
-      
-    
+      ]
+    };
+  }
+
+  addFun = ()=>{
+    console.log(this,"add")
+  }
+
+  deleteFun = ()=>{
+    console.log(this,"delete")
+  }
+
+  render(){
     return (
       <div className={styles.normal}>
-          <Table dataSource={dataSource} columns={columns} />
+          <Table dataSource={this.state.dataSource} columns={this.state.columns}  />
       </div>
     )
   }
+  }
+
+  export default TableDemo;

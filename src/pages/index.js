@@ -6,8 +6,9 @@ import { Component } from 'react';
 
 class Index extends Component {
 
-  toTable(){
+  toTable = () => {
     router.push('/tabledemo')
+    console.log(this)
   }
 
   render(){
