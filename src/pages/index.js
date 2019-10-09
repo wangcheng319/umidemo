@@ -11,6 +11,11 @@ class Index extends Component {
     console.log(this)
   }
 
+  toLogin = () => {
+    router.push('/login')
+    console.log(this)
+  }
+
   render(){
     return (
       <div className={styles.normal}>
@@ -24,6 +29,7 @@ class Index extends Component {
           </li>
         </ul>
         <Button onClick={this.toTable}>Table</Button>
+        <Button onClick={this.toLogin}>Login</Button>
       </div>
     )
   }
