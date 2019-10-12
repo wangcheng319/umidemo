@@ -1,32 +1,22 @@
 import React, { Component } from 'react'
-import { Card ,Row,Col, Form, Input,Button,Icon} from 'antd';
-import styles from './index.css';
-
-export class Login extends Component {
-    render() {
-        return (
-            <div className={styles.root}>
-               <WrappedHorizontalLoginForm />
-            </div>
-        )
-    }
-}
+import { Card ,Row,Col, Form, Input,Button,Icon,Modal} from 'antd';
 
 class index extends Component {
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
-  };
 
-  render() {
-    const { getFieldDecorator } = this.props.form;
-    return (
-      <div>
-           <Form onSubmit={this.handleSubmit}>
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+          if (!err) {
+            console.log('Received values of form1: ', values);
+          }
+        });
+      };
+
+    render() {
+        const { getFieldDecorator } = this.props.form;
+        return (
+            <div>
+                  <Form onSubmit={this.handleSubmit}>
                       <Form.Item>
                         {getFieldDecorator('username', {
                           rules: [{ required: true, message: 'Please input your username!' }],
@@ -48,12 +38,11 @@ class index extends Component {
                           />,
                         )}
                       </Form.Item>
-                      <Button htmlType="submit">Login in</Button>
                   </Form>
-      </div>
-    )
-  }
+            </div>
+        )
+    }
 }
-const WrappedHorizontalLoginForm = Form.create({ name: 'horizontal_login' })(index);
 
-export default Login
+const WrappedHorizontalLoginForm = Form.create({ name: 'horizontal_login' })(index);
+export default WrappedHorizontalLoginForm

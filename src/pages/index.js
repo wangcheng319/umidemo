@@ -16,6 +16,14 @@ class Index extends Component {
     console.log(this)
   }
 
+  toModal = ()=>{
+    router.push('/modaldemo')
+    console.log(this)
+  }
+  test (value){
+    console.log(this,value)
+  }
+
   render(){
     return (
       <div className={styles.normal}>
@@ -30,6 +38,8 @@ class Index extends Component {
         </ul>
         <Button onClick={this.toTable}>Table</Button>
         <Button onClick={this.toLogin}>Login</Button>
+        <Button onClick={this.toModal}>Modal</Button>
+        <Button onClick={this.test.bind(this,3)}></Button>
       </div>
     )
   }

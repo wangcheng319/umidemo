@@ -138,9 +138,9 @@ class TableDemo extends React.Component {
           width: '10%',
           render: (text, item) => (
             <span>
-              <a onClick={this.addFun.bind(this,item.number)}>查看</a>
+              <a onClick={this.addFun.bind(this,item.project_number)}>查看</a>
               <Divider type="vertical" />
-              <a onClick={this.addFun.bind(this,item.number)}>划账</a>
+              <a onClick={this.addFun.bind(this,item.project_number)}>划账</a>
             </span>
           ),
         },
@@ -158,6 +158,10 @@ class TableDemo extends React.Component {
 
   callback(key) {
     console.log(key);
+  }
+
+  onChange(pageNumber) {
+    console.log('Page: ', pageNumber);
   }
 
   render(){
@@ -218,9 +222,11 @@ class TableDemo extends React.Component {
           <Tabs type="flex" justify="start" className={styles.tabs}>
             <TabPane tab="共管账户转账记录" key="1" type="flex" justify="start">
               <Table dataSource={this.state.dataSource} columns={this.state.columns}  pagination={false}/>
+              <Pagination size="small" total={50} showSizeChanger showQuickJumper onChange={this.onChange}/>
             </TabPane>
             <TabPane tab="租金归集账户转账记录" key="2" type="flex" justify="start">
               <Table dataSource={this.state.dataSource1} columns={this.state.columns1} pagination={ false } />
+              <Pagination size="small" total={50} showSizeChanger showQuickJumper onChange={this.onChange}/>
             </TabPane>
           </Tabs>
       </div>
